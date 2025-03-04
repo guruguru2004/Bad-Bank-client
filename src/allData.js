@@ -15,7 +15,7 @@ export default function Alldata(){
 useEffect(() => {
 
     async function axiosProd(){
-        const response = await axios('http://localhost:3002/data');
+        const response = await axios('https://bad-bank-server-y8hq.onrender.com/data');
         setProducts(response.data)
     };
     axiosProd();
@@ -23,7 +23,7 @@ useEffect(() => {
 
     const handleClick = (index)=>{
         const deleteItem = products[index];
-        axios.delete(`http://localhost:3002/delete/${deleteItem._id}`).then(() => {
+        axios.delete(`https://bad-bank-server-y8hq.onrender.com/delete/${deleteItem._id}`).then(() => {
         const updatedData = [...products];
         updatedData.splice(index, 1);
         setProducts(updatedData);
@@ -37,7 +37,7 @@ function handleEdit(item) {
 
     async function handleUpdate() {
         try {
-        await axios.put(`http://localhost:3002/update/${editId}`, formData);
+        await axios.put(`https://bad-bank-server-y8hq.onrender.com/update/${editId}`, formData);
         setProducts(products.map((item) => (item._id === editId ? { ...item, ...formData } : item)));
         setEditId(null);
         alert("Updated successfully!");
