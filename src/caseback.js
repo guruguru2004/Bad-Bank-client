@@ -23,7 +23,7 @@ export default function Cashback(){
     
         useEffect(()=>{
         const fetchdata=async()=>{
-            await axios.get('http://localhost:3002/data').then((item)=>{setData(item.data)})
+            await axios.get('https://bad-bank-server-y8hq.onrender.com/data').then((item)=>{setData(item.data)})
         };fetchdata()
         },[]);
     
@@ -32,7 +32,7 @@ export default function Cashback(){
             const user = data.find(item => item.userid === Number(userId) && item.password === password);
             if (user) {
                 const updatedAmount = Number(user.amount) - Number(dep);
-                axios.put(`http://localhost:3002/update/${user._id}`, { amount: updatedAmount })
+                axios.put(`https://bad-bank-server-y8hq.onrender.com/update/${user._id}`, { amount: updatedAmount })
                     .then(() => {
                     setResult(`Rs.${dep} Amount Credited to Your Account`);
                     });
