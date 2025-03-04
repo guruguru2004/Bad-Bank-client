@@ -32,7 +32,7 @@ const handleSubmit=(e)=>{
     }
     if(flag === 0){
         let item = {userid:userId,name:name,email:email,password:password,amount:1000};
-        axios.post('http://localhost:3002/create' , item);
+        axios.post('https://bad-bank-server-y8hq.onrender.com/create' , item);
         setResult(`Your Account create in Successfully....`);
         document.getElementById('display').style.display = "block";
     }
@@ -40,7 +40,7 @@ const handleSubmit=(e)=>{
 useEffect(() => {
     
     async function axiosProd(){
-        const response = await axios('http://localhost:3002/data');
+        const response = await axios('https://bad-bank-server-y8hq.onrender.com/data');
         setProducts(response.data)
     };
     axiosProd();
